@@ -16,3 +16,21 @@ C:\Users\PC\Desktop\Курсова\Курсова GUI\Курсова GUI\obj\Deb
 C:\Users\PC\Desktop\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.ThirdGame.resources
 C:\Users\PC\Desktop\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.ThirdStory.resources
 C:\Users\PC\Desktop\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.EndGameMenu.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\bin\Debug\Курсова GUI.exe.config
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\bin\Debug\Курсова GUI.exe
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\bin\Debug\Курсова GUI.pdb
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова GUI.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.Choosing_Character.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.EndGameMenu.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.FirstGame.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.FirstStory.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.LogInSystem.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.Properties.Resources.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.SecondGame.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.SecondStory.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.ThirdGame.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова_GUI.ThirdStory.resources
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова GUI.csproj.GenerateResource.cache
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова GUI.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова GUI.exe
+C:\Users\PC\Desktop\GUI Game\Курсова\Курсова GUI\Курсова GUI\obj\Debug\Курсова GUI.pdb

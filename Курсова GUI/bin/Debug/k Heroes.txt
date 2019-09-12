@@ -1,16 +1,9 @@
-Hero name: ,Tank
+﻿Hero name: ,Tank
 Hero name: ,Healer
 Hero name: ,happytoshe.png
 Hero name: ,0-4983_planet-saturn-clipart-37-5°c-no-namida.png.jpg
 Hero name: ,newpokemon.png
 Hero name: ,Big Flagus
 Hero name: ,Big Chunguschu
-Hero name: ,Big Chunguschu
-Hero name: ,Big Chunguschu
 Hero name: ,Tank
-Hero name: ,Big Yargus
-Hero name: ,Big Flagus
-Hero name: ,Big Flagus
-Hero name: ,Big Chunguschu
-Hero name: ,Big Flagus
-Hero name: ,Big Yargus
+Hero name: ,Mage

@@ -15,20 +15,21 @@ namespace Курсова_GUI
     public partial class Choosing_Character : Form
     {
         string file = $"{Globals.Username} Heroes.txt";
-        private bool button1_clicked = false;
 
+        private bool button1_clicked = false;
 
         public Choosing_Character()
         {
             InitializeComponent();
-            label2.Text = $"Hello  {Globals.Username}";
-            if(File.Exists(file))
+            username.Text = $"Hello  {Globals.Username}";
+
+            if (File.Exists(file))
             {
                 using (StreamReader sr = new StreamReader(file))
                 {
                     while (!sr.EndOfStream)
                     {
-                        listBox1.Items.Add((sr.ReadLine()));
+                        heroesList.Items.Add((sr.ReadLine()));
                     }
 
                 }
@@ -37,25 +38,29 @@ namespace Курсова_GUI
 
         private void Upload_Click(object sender, EventArgs e)
         {
-           
-            radioButton4.PerformClick();
-            if (radioButton4.Checked)
+            customHeroButton.PerformClick();
+
+            if (customHeroButton.Checked)
             {
-                if (radioButton4.Checked)
+                if (customHeroButton.Checked)
                 {
-                    textBox1.Visible = true;
+                    picturePath.Visible = true;
                     label6.Visible = true;
+
                     Globals.Upload = 1;
+
                     try
                     {
                         OpenFileDialog dialog = new OpenFileDialog();
+
                         dialog.InitialDirectory = @"C:\Users\PC\Desktop";
                         dialog.Filter = "Image Files(*.png;*.jpg; *.jpeg; *.gif;  *.bmp;)|*.png;*.jpg; *.jpeg; *.gif; *.bmp;";
+
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
-                            textBox1.Text = dialog.SafeFileName;
+                            picturePath.Text = dialog.SafeFileName;
                             File.Copy(dialog.FileName, "NewClass\\" + dialog.SafeFileName);
-                            pictureBox4.ImageLocation = "NewClass\\" + dialog.SafeFileName;
+                            customPicture.ImageLocation = "NewClass\\" + dialog.SafeFileName;
                             FileStream fs = new FileStream($"{Globals.Username} Upload.txt", FileMode.OpenOrCreate);
                             using (StreamWriter sv = new StreamWriter(fs))
                             {
@@ -68,7 +73,6 @@ namespace Курсова_GUI
                     {
                         MessageBox.Show("Something went wrong with the picture!");
                     }
-                   
                 }
             }
         }
@@ -76,38 +80,44 @@ namespace Курсова_GUI
         private void Save_Click(object sender, EventArgs e)
         {
             button1_clicked = true;
-            listBox1.Items.Clear();
-            if (radioButton1.Checked)
+
+            heroesList.Items.Clear();
+
+            if (tankButton.Checked)
             {
                 Globals.UsersHeroPicture = "Tank";
             }
-            if (radioButton2.Checked)
+
+            if (healerButton.Checked)
             {
                 Globals.UsersHeroPicture = "Healer";
             }
-            if (radioButton3.Checked)
+
+            if (mageButton.Checked)
             {
                 Globals.UsersHeroPicture = "Mage";
             }
-            if (radioButton7.Checked)
+
+            if (thirdRabbitButton.Checked)
             {
                 Globals.UsersHeroPicture = "Big Yargus";
             }
-            if (radioButton5.Checked)
+
+            if (firstRabbitButton.Checked)
             {
                 Globals.UsersHeroPicture = "Big Flagus";
             }
-            if (radioButton6.Checked)
+
+            if (secondRabbitButton.Checked)
             {
                 Globals.UsersHeroPicture = "Big Chunguschu";
-             
             }
-            if (radioButton4.Checked)
-            {
-                Globals.UsersHeroPicture = textBox1.Text;
-              
 
+            if (customHeroButton.Checked)
+            {
+                Globals.UsersHeroPicture = picturePath.Text;
             }
+
             Globals.UsersHeroName = userHeroName.Text;
 
             FileStream fs = new FileStream(file, FileMode.Append);
@@ -119,43 +129,44 @@ namespace Курсова_GUI
             {
                 while (!sr.EndOfStream)
                 {
-                   listBox1.Items.Add((sr.ReadLine()));
+                   heroesList.Items.Add((sr.ReadLine()));
                 }
             }
         }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void heroesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             button1_clicked = true;
-            if (listBox1.SelectedIndex != -1)
+
+            if (heroesList.SelectedIndex != -1)
             {
-                int itemAtPostion = listBox1.SelectedIndex;
-                if (listBox1.Items[itemAtPostion].ToString().Contains("Tank"))
+                int itemAtPostion = heroesList.SelectedIndex;
+                if (heroesList.Items[itemAtPostion].ToString().Contains("Tank"))
                 {
                     Globals.UsersHeroPicture = "Tank";
                   
                 }
-                if (listBox1.Items[itemAtPostion].ToString().Contains("Healer"))
+                if (heroesList.Items[itemAtPostion].ToString().Contains("Healer"))
                 {
                     Globals.UsersHeroPicture = "Healer";
                     
                 }
-                if (listBox1.Items[itemAtPostion].ToString().Contains("Mage"))
+                if (heroesList.Items[itemAtPostion].ToString().Contains("Mage"))
                 {
                     Globals.UsersHeroPicture = "Mage";
                    
 
                 }
-                if (listBox1.Items[itemAtPostion].ToString().Contains("Big Yargus"))
+                if (heroesList.Items[itemAtPostion].ToString().Contains("Big Yargus"))
                 {
                     Globals.UsersHeroPicture = "Big Yargus";
                    
                 }
-                if (listBox1.Items[itemAtPostion].ToString().Contains("Big Flagus"))
+                if (heroesList.Items[itemAtPostion].ToString().Contains("Big Flagus"))
                 {
                     Globals.UsersHeroPicture = "Big Flagus";
                     
                 }
-                if (listBox1.Items[itemAtPostion].ToString().Contains("Big Chunguschu"))
+                if (heroesList.Items[itemAtPostion].ToString().Contains("Big Chunguschu"))
                 {
                     Globals.UsersHeroPicture = "Big Chunguschu";
                    
@@ -163,8 +174,8 @@ namespace Курсова_GUI
                 else
                 {
                     Globals.Upload = 2;
-                    Globals.NewHero = listBox1.Items[itemAtPostion].ToString().Split(',');
-                    pictureBox4.ImageLocation = "NewClass\\" + Globals.NewHero[1];
+                    Globals.NewHero = heroesList.Items[itemAtPostion].ToString().Split(',');
+                    customPicture.ImageLocation = "NewClass\\" + Globals.NewHero[1];
                    
                 }
             }
@@ -174,33 +185,33 @@ namespace Курсова_GUI
         {
             if (button1_clicked)
             {
-                if (listBox1.SelectedIndex != -1)
+                if (heroesList.SelectedIndex != -1)
                 {
-                    int itemAtPostion = listBox1.SelectedIndex;
-                    if (listBox1.Items[itemAtPostion].ToString().Contains("Tank"))
+                    int itemAtPostion = heroesList.SelectedIndex;
+                    if (heroesList.Items[itemAtPostion].ToString().Contains("Tank"))
                     {
                         Globals.UsersHeroPicture = "Tank";
                     }
-                    if (listBox1.Items[itemAtPostion].ToString().Contains("Healer"))
+                    if (heroesList.Items[itemAtPostion].ToString().Contains("Healer"))
                     {
                         Globals.UsersHeroPicture = "Healer";
                     }
-                    if (listBox1.Items[itemAtPostion].ToString().Contains("Mage"))
+                    if (heroesList.Items[itemAtPostion].ToString().Contains("Mage"))
                     {
                         Globals.UsersHeroPicture = "Mage";
 
                     }
-                    if (listBox1.Items[itemAtPostion].ToString().Contains("Big Yargus"))
+                    if (heroesList.Items[itemAtPostion].ToString().Contains("Big Yargus"))
                     {
                         Globals.UsersHeroPicture = "Big Yargus";
                        
                     }
-                    if (listBox1.Items[itemAtPostion].ToString().Contains("Big Flagus"))
+                    if (heroesList.Items[itemAtPostion].ToString().Contains("Big Flagus"))
                     {
                         Globals.UsersHeroPicture = "Big Flagus";
                        
                     }
-                    if (listBox1.Items[itemAtPostion].ToString().Contains("Big Chunguschu"))
+                    if (heroesList.Items[itemAtPostion].ToString().Contains("Big Chunguschu"))
                     {
                         Globals.UsersHeroPicture = "Big Chunguschu";
                        
@@ -208,11 +219,15 @@ namespace Курсова_GUI
                     else
                     {
                         Globals.Upload = 2;
-                        Globals.NewHero = listBox1.Items[itemAtPostion].ToString().Split(',');
-                        pictureBox4.ImageLocation = "NewClass\\" + Globals.NewHero[1];
+
+                        Globals.NewHero = heroesList.Items[itemAtPostion].ToString().Split(',');
+
+                        customPicture.ImageLocation = "NewClass\\" + Globals.NewHero[1];
                     }
                 }
+
                 this.Hide();
+
                 var firstStory = new FirstStory();
                 firstStory.Closed += (s, args) => this.Close();
                 firstStory.Show();
@@ -226,36 +241,31 @@ namespace Курсова_GUI
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            radioButton5.PerformClick();
+            firstRabbitButton.PerformClick();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            radioButton6.PerformClick();
+            secondRabbitButton.PerformClick();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            radioButton7.PerformClick();
+            thirdRabbitButton.PerformClick();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            radioButton1.PerformClick();
+            tankButton.PerformClick();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            radioButton2.PerformClick();
+            healerButton.PerformClick();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            radioButton3.PerformClick();
+            mageButton.PerformClick();
         }
-
-       
-        
-
-        
     }
 }

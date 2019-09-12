@@ -11,27 +11,35 @@ namespace Курсова_GUI
     class Bullets
     {
         public string diretion;
+
         public int speed = 20, bulletLeft, bulletTop;
+
         PictureBox bullet = new PictureBox();
+
         Timer tm = new Timer();
+
         public void makeBullet(Form form)
         {
-           
-            if (Globals.BulletMode==2)
+            switch (Globals.BulletMode)
             {
-                bullet.Size = new Size(20, 5);
-                bullet.BackColor = System.Drawing.Color.LimeGreen;
+                case 2:
+                    {
+                        bullet.Size = new Size(20, 5);
+                        bullet.BackColor = System.Drawing.Color.LimeGreen;
+                    }break;
+
+                case 1:
+                    {
+                        bullet.Size = new Size(5, 5);
+                        bullet.BackColor = System.Drawing.Color.LightCoral;
+                    }break;
             }
-            if (Globals.BulletMode == 1)
-            {
-                bullet.Size = new Size(5, 5);
-                bullet.BackColor = System.Drawing.Color.LightCoral;
-            }
-           
+
             bullet.Left = bulletLeft;
             bullet.Top = bulletTop;
             bullet.Tag = "bullet";
             bullet.BringToFront();
+
             form.Controls.Add(bullet);
 
             tm.Interval = speed;
@@ -40,49 +48,42 @@ namespace Курсова_GUI
         }
         public void Tm_Tick(object sender, EventArgs e)
         {
-            if (diretion == "left")
+            switch (diretion)
             {
-                bullet.Left -= speed;
+                case "left": bullet.Left -= speed; break;
+                case "right": bullet.Left += speed; break;
+                case "up": bullet.Top -= speed; break;
+                case "down": bullet.Top += speed; break;
 
             }
-            if (diretion == "right")
-            {
-                bullet.Left += speed;
 
-            }
-            if (diretion == "up")
+            switch (Globals.BulletMode)
             {
-                bullet.Top -= speed;
+                case 1:
+                    {
+                        if (bullet.Left < 20 || bullet.Left > 1000 || bullet.Top < 20 || bullet.Top > 1206)
+                        {
+                            tm.Stop();
+                            tm.Dispose();
+                            bullet.Dispose();
+                            tm = null;
+                            bullet = null;
+                        }
+                    } break;
 
+                case 3:
+                    {
+                        if (bullet.Left < 16 || bullet.Left > 1300 || bullet.Top < 10 || bullet.Top > 616)
+                        {
+                            tm.Stop();
+                            tm.Dispose();
+                            bullet.Dispose();
+                            tm = null;
+                            bullet = null;
+                        }
+                    }
+                    break;
             }
-            if (diretion == "down")
-            {
-                bullet.Top += speed;
-
-            }
-            if(Globals.BulletMode==1)
-            {
-                if (bullet.Left < 20 || bullet.Left > 1000 || bullet.Top < 20 || bullet.Top > 1206)
-                {
-                    tm.Stop();
-                    tm.Dispose();
-                    bullet.Dispose();
-                    tm = null;
-                    bullet = null;
-                }
-            }
-            if (Globals.BulletMode == 3)
-            {
-                if (bullet.Left < 16 || bullet.Left > 1300 || bullet.Top < 10 || bullet.Top > 616)
-                {
-                    tm.Stop();
-                    tm.Dispose();
-                    bullet.Dispose();
-                    tm = null;
-                    bullet = null;
-                }
-            }
-
         }
     }
 }
