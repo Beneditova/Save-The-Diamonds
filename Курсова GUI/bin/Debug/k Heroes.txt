@@ -7,3 +7,4 @@ Hero name: ,Big Flagus
 Hero name: ,Big Chunguschu
 Hero name: ,Tank
 Hero name: ,Mage
+Hero name: ,Mage

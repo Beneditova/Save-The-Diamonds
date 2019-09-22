@@ -17,9 +17,11 @@ namespace Курсова_GUI
         public SecondGame()
         {
             InitializeComponent();
+
             heart1.Image = Properties.Resources.lifeu;
             heart2.Image = Properties.Resources.lifeu;
             heart3.Image = Properties.Resources.lifeu;
+
             player.BringToFront();
             if (Globals.Upload == 1)
             {
@@ -130,14 +132,17 @@ namespace Курсова_GUI
             {
                 jumping = false;
             }
+
             if (goLeft)
             {
                 player.Left -= 5;
             }
+
             if (goRight && player.Left + player.Width < 1210)
             {
                 player.Left += 5;
             }
+
             if (jumping)
             {
                 jumpSpeed = -12;
@@ -147,14 +152,17 @@ namespace Курсова_GUI
             {
                 jumpSpeed = 12;
             }
+
             if (health==2)
             {
                 heart3.Visible = false;
             }
+
             if (health == 1)
             {
                 heart2.Visible = false;
             }
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && x.Tag == "platform")
@@ -166,6 +174,7 @@ namespace Курсова_GUI
                     }
                 }
             }
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && x.Tag == "platform")
@@ -199,6 +208,7 @@ namespace Курсова_GUI
                     }
                 }
             }
+
             if (player.Bounds.IntersectsWith(Door.Bounds) && hasKey)
             {
                 if (score > Globals.SecondGame)
@@ -211,6 +221,7 @@ namespace Курсова_GUI
                 gameOne.Closed += (s, args) => this.Close();
                 gameOne.Show();
             }
+
             if (player.Bounds.IntersectsWith(Key.Bounds))
             {
                 this.Controls.Remove(Key);
@@ -231,6 +242,7 @@ namespace Курсова_GUI
                     
                 }
             }
+
             if (health==0)
             {
                 heart1.Visible = false;
@@ -248,13 +260,12 @@ namespace Курсова_GUI
         
         private void BackgroundPaint(object sender, PaintEventArgs e)
         {
-
-           
             Bitmap platform = new Bitmap(Properties.Resources.platform);
             Bitmap background = new Bitmap(Properties.Resources.background1);
             Bitmap key = new Bitmap(Properties.Resources.key);
             Bitmap door = new Bitmap(Properties.Resources.door);
             Bitmap diamond = new Bitmap(Properties.Resources.diamond);
+
             foreach (PictureBox x in this.Controls)
             {
                 if (x is PictureBox && x.Tag == "platform")
@@ -275,11 +286,13 @@ namespace Курсова_GUI
             SoundPlayer door = new SoundPlayer(@"door.wav");
             door.Play();
         }
+
         private void KeySound()
         {
             SoundPlayer key = new SoundPlayer(@"key.wav");
             key.Play();
         }
+
         private void OofSound()
         {
             SoundPlayer oof = new SoundPlayer(@"oof.wav");

@@ -140,32 +140,38 @@ namespace Курсова_GUI
             if (heroesList.SelectedIndex != -1)
             {
                 int itemAtPostion = heroesList.SelectedIndex;
+
                 if (heroesList.Items[itemAtPostion].ToString().Contains("Tank"))
                 {
                     Globals.UsersHeroPicture = "Tank";
                   
                 }
+
                 if (heroesList.Items[itemAtPostion].ToString().Contains("Healer"))
                 {
                     Globals.UsersHeroPicture = "Healer";
                     
                 }
+
                 if (heroesList.Items[itemAtPostion].ToString().Contains("Mage"))
                 {
                     Globals.UsersHeroPicture = "Mage";
                    
 
                 }
+
                 if (heroesList.Items[itemAtPostion].ToString().Contains("Big Yargus"))
                 {
                     Globals.UsersHeroPicture = "Big Yargus";
                    
                 }
+
                 if (heroesList.Items[itemAtPostion].ToString().Contains("Big Flagus"))
                 {
                     Globals.UsersHeroPicture = "Big Flagus";
                     
                 }
+
                 if (heroesList.Items[itemAtPostion].ToString().Contains("Big Chunguschu"))
                 {
                     Globals.UsersHeroPicture = "Big Chunguschu";

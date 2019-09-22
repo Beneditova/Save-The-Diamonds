@@ -18,6 +18,7 @@ namespace Курсова_GUI
         public FirstGame()
         {
             InitializeComponent();
+
             if (Globals.Upload == 1)
             {
                 using (StreamReader sr = new StreamReader($"{Globals.Username} Upload.txt"))
@@ -26,6 +27,7 @@ namespace Курсова_GUI
                 }
                 player.ImageLocation = "NewClass\\" + pathFile;
             }
+
             if (Globals.Upload == 2)
             {
                 player.ImageLocation = "NewClass\\" + Globals.NewHero[1];
@@ -38,9 +40,13 @@ namespace Курсова_GUI
         }
 
         bool goUp, goDown, goLeft, goRight, gameOver;
+
         double playerHeath = 100;
+
         Random rnd = new Random();
+
         string facing = "up",pathFile;
+
         int speed = 10, ammo = 10, enemySpeed = 3, score = 0;
 
         private void button2_Click(object sender, EventArgs e)
@@ -220,8 +226,6 @@ namespace Курсова_GUI
         {
             Globals.BulletMode = 1;
 
-            
-
             if (playerHeath > 1)
             {
                 progressBar1.Value = Convert.ToInt32(playerHeath);
@@ -232,13 +236,13 @@ namespace Курсова_GUI
                 {
                     Globals.FirstGame = score;
                 }
-                
-                
+
                 Ded();
                 timer1.Stop();
                 gameOver = true; button1.Visible = true;score = 0;
                 button2.Visible = true; button1.BringToFront();
                 button2.BringToFront();
+
             }
             label3.Text = "Ammo: " + ammo;
             label2.Text = "Score: " + score;
@@ -347,6 +351,7 @@ namespace Курсова_GUI
             ammo.BringToFront();
             player.BringToFront();
         }
+
         private void Shoot(string direct)
         {
             Bullets shoot = new Bullets();
@@ -360,22 +365,27 @@ namespace Курсова_GUI
             {
                 Globals.TankSound();
             }
+
             if (Globals.UsersHeroPicture == "Healer")
             {
                 Globals.HealerSound();
             }
+
             if (Globals.UsersHeroPicture == "Mage")
             {
                 Globals.MageSound();
             }
+
             if (Globals.UsersHeroPicture == "Big Yargus")
             {
                 Globals.YareSound();
             }
+
             if (Globals.UsersHeroPicture == "Big Flagus")
             {
                 Globals.YareSound();
             }
+
             if (Globals.UsersHeroPicture == "Big Chunguschu")
             {
                 Globals.PikaSound();
@@ -385,6 +395,7 @@ namespace Курсова_GUI
                 Globals.ShootSound();
             }
         }
+
         private void MakeAliens()
         {
             PictureBox alien = new PictureBox();
@@ -396,12 +407,11 @@ namespace Курсова_GUI
             this.Controls.Add(alien);
             player.BringToFront();
         }
+
         public static void Ded()
         {
             SoundPlayer dedSound = new SoundPlayer(@"ded.wav");
             dedSound.Play();
         }
-
-
     }
 }

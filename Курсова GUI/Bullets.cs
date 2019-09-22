@@ -46,6 +46,7 @@ namespace Курсова_GUI
             tm.Tick += new EventHandler(Tm_Tick);
             tm.Start();
         }
+
         public void Tm_Tick(object sender, EventArgs e)
         {
             switch (diretion)
@@ -81,8 +82,7 @@ namespace Курсова_GUI
                             tm = null;
                             bullet = null;
                         }
-                    }
-                    break;
+                    } break;
             }
         }
     }
